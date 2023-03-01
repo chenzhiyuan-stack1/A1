@@ -16,7 +16,7 @@
 import math
 import numpy as np
 
-from rand_param_envs.utilities import transformations
+from utilities import transformations
 
 VECTOR3_0 = np.zeros(3, dtype=np.float64)
 VECTOR3_1 = np.ones(3, dtype=np.float64)

@@ -21,9 +21,9 @@ from __future__ import print_function
 
 import numpy as np
 
-from rand_param_envs.utilities import pose3d
-from rand_param_envs.utilities import motion_util
-from rand_param_envs.utilities import transformations
+from utilities import pose3d
+from utilities import motion_util
+from utilities import transformations
 
 
 def imitation_terminal_condition(env,

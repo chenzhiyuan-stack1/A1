@@ -22,7 +22,7 @@ parentdir = os.path.dirname(os.path.dirname(currentdir))
 os.sys.path.insert(0, parentdir)
 import numpy as np
 
-from rand_param_envs.utilities import robot_config
+from utilities import robot_config
 
 VOLTAGE_CLIPPING = 50
 OBSERVED_TORQUE_LIMIT = 5.7

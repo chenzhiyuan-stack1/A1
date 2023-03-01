@@ -23,8 +23,8 @@ os.sys.path.insert(0, parentdir)
 
 import numpy as np
 
-from rand_param_envs.utilities import pose3d
-from rand_param_envs.utilities import transformations
+from utilities import pose3d
+from utilities import transformations
 
 
 def standardize_quaternion(q):

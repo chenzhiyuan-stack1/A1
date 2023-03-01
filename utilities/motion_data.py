@@ -26,9 +26,9 @@ import math
 import enum
 import numpy as np
 
-from rand_param_envs.utilities import pose3d
-from rand_param_envs.utilities import motion_util
-from rand_param_envs.utilities import transformations
+from utilities import pose3d
+from utilities import motion_util
+from utilities import transformations
 
 
 class LoopMode(enum.Enum):

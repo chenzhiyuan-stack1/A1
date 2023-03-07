@@ -4,6 +4,7 @@ from os import path
 import mujoco_py
 import numpy as np
 from gym.envs.mujoco import mujoco_env
+from gym import spaces
 
 ENV_ASSET_DIR = os.path.join(os.path.dirname(__file__), 'assets')
 
@@ -28,6 +29,12 @@ class MujocoEnv(mujoco_env.MujocoEnv):
             self.first_try = False
             self.ref_sim = mujoco_py.MjSim(self.model)
             self.ref_data = self.ref_sim.data
+            # use a symmetric and normalized Box action space
+            bounds = self.model.actuator_ctrlrange.copy().astype(np.float32)
+            low, high = bounds.T
+            low = low/33.5
+            high = high/33.5
+            self.action_space = spaces.Box(low=low, high=high, dtype=np.float32)
 
 
 def get_asset_xml(xml_name):

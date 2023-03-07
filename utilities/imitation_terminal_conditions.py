@@ -107,6 +107,7 @@ def imitation_terminal_condition(env,
       root_rot_diff_angle)
   root_rot_fail = (np.abs(root_rot_diff_angle) > rot_fail_threshold)
 
+  done = False
   done = motion_over \
       or contact_fall \
       or root_pos_fail \

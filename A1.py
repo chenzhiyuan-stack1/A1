@@ -43,6 +43,7 @@ class A1Env(MujocoEnv):
             done = False
             return ob, reward, done, {}
 
+        a = a * 33.5
         self.do_simulation(a, self.frame_skip)
         
         reward = self._reward()
@@ -53,6 +54,8 @@ class A1Env(MujocoEnv):
             done = self.imitation_task.done(self)
         else:
             done = False
+
+        done = bool(done)
         
         ob = self._get_obs()
         
@@ -110,8 +113,12 @@ class A1Env(MujocoEnv):
 
 if __name__ == "__main__":
     env = A1Env()
-    while True:
-        env.reset()
-        for i in range(1000):
-            ob, reward, done, _ = env.step(env.action_space.sample())  # take a random action
-            env.render()
+    obs = env.reset()
+    n_steps = 1000
+    for _ in range(n_steps):
+        # Random action
+        action = env.action_space.sample()
+        obs, reward, done, info = env.step(action)
+        env.render()
+        if done:
+            obs = env.reset()
